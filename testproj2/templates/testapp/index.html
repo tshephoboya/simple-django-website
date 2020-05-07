@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{%  static "css/style.css" %} ">
+    <title>Index page</title>
+  </head>
+  <body>
+    <h1>Welcome to L2</h1>
+    {% if access_records %}
+    <table>
+      <thead>
+        <th>Site Name</th>
+        <th>date accessed</th>
+      </thead>
+      {% for acc in access_records %}
+      <tr>
+        <td>{{ acc.name }}</td>
+        <td>{{ acc.date }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+      <p>No access found</p>
+    {% endif %}
+
+  </body>
+</html>
